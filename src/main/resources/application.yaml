@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:mysql://mysql.xquare.app:3306/${DB_NAME:prod_demo}?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&tinyInt1isBit=false&rewriteBatchedStatements=true
+    username: ${MYSQL_USERNAME:demo}
+    password: ${MYSQL_PASSWORD:demo}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      format_sql: true
+      generate-ddl: false
+    defer-datasource-initialization: true
+    show-sql: false
+
+jwt:
+  header: Authorization
+  prefix: Bearer
+  secret: ${SECRET:asdasdasdasdasdasdasd}
+  accessExpiration: 604800
