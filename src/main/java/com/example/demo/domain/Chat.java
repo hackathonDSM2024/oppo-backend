@@ -27,5 +27,4 @@ public class Chat {
 
     @Column(name = "DESCRIPTION", nullable = false)
     private String description;
-
 }

@@ -20,7 +20,7 @@ public class GlobalExceptionFilter extends OncePerRequestFilter {
         HttpServletRequest request,
         HttpServletResponse response,
         FilterChain filterChain
-    )throws IOException {
+    ) throws IOException {
 
         try {
             filterChain.doFilter(request,response);

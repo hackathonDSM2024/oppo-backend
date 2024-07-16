@@ -16,13 +16,12 @@ import java.util.List;
 @RequestMapping("/purchase")
 public class PurchaseController {
 
-    private final BalanceRepository balanceRepository;
     private final PurchaseRepository purchaseRepository;
+    private final BalanceRepository balanceRepository;
 
     @GetMapping
     PurchaseResponse getPurchase(){
         List<Purchase> purchaseList = (List<Purchase>) purchaseRepository.findAll();
-
         return PurchaseResponse.of(purchaseList);
     }
 

@@ -8,8 +8,9 @@ import lombok.Getter;
 @AllArgsConstructor
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum ChattingType {
-    CHATGPT("CHATGPT"),
-    USER("USER");
+    SYSTEM("system"),
+    CHATGPT("assistant"),
+    USER("user");
 
-    private final String chattingType;
+    private final String name;
 }

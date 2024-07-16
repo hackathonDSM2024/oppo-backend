@@ -23,6 +23,7 @@ public enum ErrorCode {
     CHAT_NOT_FOUND(404 , "Chat Not Found"),
 
     // 서버에러
+    GENERATIVE_AI_ERROR(500, "GENERATIVE_AI_ERROR"),
     INTERNAL_SERVER_ERROR(500,"Server Error");
 
     private final Integer statusCode;

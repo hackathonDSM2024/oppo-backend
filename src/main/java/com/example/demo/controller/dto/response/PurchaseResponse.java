@@ -29,12 +29,14 @@ class PurchaseHistory{
     private String name;
     private Long price;
     private String description;
+    private Long chatId;
 
     public static PurchaseHistory of(Purchase purchase) {
         return PurchaseHistory.builder()
                 .name(purchase.getName())
                 .price(purchase.getPrice())
                 .description(purchase.getDescription())
+                .chatId(purchase.getId())
                 .build();
     }
 }

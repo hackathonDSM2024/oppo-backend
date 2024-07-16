@@ -30,4 +30,7 @@ public class Purchase {
     @Enumerated(EnumType.STRING)
     private PurchaseType purchaseType;
 
+    @OneToOne
+    @JoinColumn(name="CHAT_ID", nullable = true)
+    private Chat chat;
 }
