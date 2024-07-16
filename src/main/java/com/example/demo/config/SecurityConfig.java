@@ -1,6 +1,5 @@
 package com.example.demo.config;
 
-import com.example.demo.config.jwt.*;
 import com.fasterxml.jackson.databind.*;
 import jakarta.servlet.*;
 import lombok.*;
@@ -20,7 +19,6 @@ import org.springframework.security.web.*;
 @Configuration
 public class SecurityConfig {
 
-    private final JwtTokenProvider jwtTokenProvider;
     private final ObjectMapper objectMapper;
 
     @Bean
@@ -43,7 +41,7 @@ public class SecurityConfig {
                 .anyRequest()
                 .permitAll()
             )
-            .with(new FilterConfig(jwtTokenProvider, objectMapper), Customizer.withDefaults());
+            .with(new FilterConfig(objectMapper), Customizer.withDefaults());
 
         return httpSecurity.build();
 
