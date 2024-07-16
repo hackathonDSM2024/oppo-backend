@@ -15,6 +15,9 @@ spring:
     defer-datasource-initialization: true
     show-sql: false
 
+chatgpt:
+  api-key: ${CHATGPT_API_KEY}
+
 jwt:
   header: Authorization
   prefix: Bearer
