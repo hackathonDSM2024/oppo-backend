@@ -30,8 +30,4 @@ public class Purchase {
     @Enumerated(EnumType.STRING)
     private PurchaseType purchaseType;
 
-    @OneToOne
-    @JoinColumn(name="CHAT_ID", unique=true)
-    private Chat chat;
-
 }

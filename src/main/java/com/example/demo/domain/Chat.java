@@ -19,4 +19,13 @@ public class Chat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "NAME", nullable = false)
+    private String name;
+
+    @Column(name = "PRICE", nullable = false)
+    private Long price;
+
+    @Column(name = "DESCRIPTION", nullable = false)
+    private String description;
+
 }
