@@ -17,16 +17,14 @@ public class ChatMessage {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "NAME", nullable = false)
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private ChattingType type;
 
-    @Column(name = "PRICE", nullable = false)
-    private Long price;
+    @Column(name = "CONTENT", nullable = true)
+    private String content;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Chat.class, fetch = FetchType.LAZY)
     @JoinColumn(name="CHAT_ID")
     private Chat chat;
 
-    @Enumerated(EnumType.STRING)
-    private ChattingType chattingType;
 }
