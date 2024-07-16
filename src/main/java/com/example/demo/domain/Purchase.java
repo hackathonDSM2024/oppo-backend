@@ -24,6 +24,9 @@ public class Purchase {
     @Column(name = "PRICE", nullable = false)
     private Long price;
 
+    @Column(name = "DESCRIPTION", nullable = false)
+    private String description;
+
     @Enumerated(EnumType.STRING)
     private PurchaseType purchaseType;
 

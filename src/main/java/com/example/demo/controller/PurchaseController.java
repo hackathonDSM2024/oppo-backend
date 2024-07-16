@@ -3,10 +3,13 @@ package com.example.demo.controller;
 import com.example.demo.controller.dto.request.*;
 import com.example.demo.controller.dto.response.*;
 import com.example.demo.domain.*;
+import com.example.demo.domain.enums.PurchaseType;
 import com.example.demo.exceptions.*;
+import jakarta.persistence.Id;
 import lombok.*;
 import org.springframework.security.crypto.password.*;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -14,6 +17,26 @@ import org.springframework.web.bind.annotation.*;
 public class PurchaseController {
 
     private final BalanceRepository balanceRepository;
+    private final PurchaseRepository purchaseRepository;
+
+    @GetMapping
+    PurchaseResponse getPurchase(){
+        List<Purchase> purchaseList = (List<Purchase>) purchaseRepository.findAll();
+
+        return PurchaseResponse.of(purchaseList);
+    }
+
+    @PostMapping
+    void createPurchase(@RequestBody PurchaseRequest purchaseRequest){
+        Purchase purchase = Purchase.builder()
+                .name(purchaseRequest.getName())
+                .price(purchaseRequest.getPrice())
+                .description(purchaseRequest.getDescription())
+                .purchaseType(PurchaseType.DIRECT)
+                .build();
+        purchaseRepository.save(purchase);
+        minusBalance(purchaseRequest.getPrice());
+    }
 
     void minusBalance(Long value) {
         Balance balance = balanceRepository.findById(1L)
