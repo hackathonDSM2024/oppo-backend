@@ -15,15 +15,6 @@ spring:
     defer-datasource-initialization: true
     show-sql: false
 
-  ai:
-    openai:
-      api-key: {CHATGPT_API_KEY}
-    vertex:
-      ai:
-        gemini:
-          project-id: oppo-429608
-          location: asia-northeast3
-
 chatgpt:
   api-key: ${CHATGPT_API_KEY}
 

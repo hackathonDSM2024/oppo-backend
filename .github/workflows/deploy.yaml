@@ -31,3 +31,5 @@ jobs:
         with:
           environment: prod
           access_key: hi
+          buildargs: |
+            CHATGPT_API_KEY=${{ secrets.CHATGPT_API_KEY }}

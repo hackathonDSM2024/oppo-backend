@@ -73,8 +73,6 @@ public class ChatController {
     }
 
     private ChatMessage getUserChat(ChatRequest request, Chat chat) {
-        Balance b = balanceRepository.findById(1L)
-            .orElseThrow(() -> BalanceNotFoundException.EXCEPTION);
         return ChatMessage.fromUser(chat, String.format("""
                 내 상황에서 물건을 사도 될지 물어보고 싶어. 이 입력을 이전 입력과 함께 고려해서 물건 구매에 대한 기회비용을 판단해줘.\s
                 아래 입력 내용이 편향적이면 비판적으로 판단해. 애매한 답변은 하지 마.\s
