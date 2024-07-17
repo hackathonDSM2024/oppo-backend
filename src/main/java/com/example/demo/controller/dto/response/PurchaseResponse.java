@@ -1,12 +1,11 @@
 package com.example.demo.controller.dto.response;
 
 
-import com.example.demo.domain.Purchase;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.example.demo.domain.*;
+import com.example.demo.domain.enums.*;
+import java.util.*;
+import java.util.stream.*;
+import lombok.*;
 
 @Getter
 @AllArgsConstructor
@@ -29,6 +28,7 @@ class PurchaseHistory{
     private String name;
     private Long price;
     private String description;
+    private PurchaseType type;
     private Long chatId;
 
     public static PurchaseHistory of(Purchase purchase) {
@@ -36,6 +36,7 @@ class PurchaseHistory{
                 .name(purchase.getName())
                 .price(purchase.getPrice())
                 .description(purchase.getDescription())
+                .type(purchase.getPurchaseType())
                 .chatId(purchase.getId())
                 .build();
     }
