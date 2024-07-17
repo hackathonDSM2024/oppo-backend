@@ -32,12 +32,14 @@ class PurchaseHistory{
     private Long chatId;
 
     public static PurchaseHistory of(Purchase purchase) {
+        Long chatId = null;
+        if (purchase.getChat() != null) chatId = purchase.getChat().getId();
         return PurchaseHistory.builder()
                 .name(purchase.getName())
                 .price(purchase.getPrice())
                 .description(purchase.getDescription())
                 .type(purchase.getPurchaseType())
-                .chatId(purchase.getChat().getId())
+                .chatId(chatId)
                 .build();
     }
 }
