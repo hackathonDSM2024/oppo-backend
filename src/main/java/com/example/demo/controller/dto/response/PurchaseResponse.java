@@ -37,7 +37,7 @@ class PurchaseHistory{
                 .price(purchase.getPrice())
                 .description(purchase.getDescription())
                 .type(purchase.getPurchaseType())
-                .chatId(purchase.getId())
+                .chatId(purchase.getChat().getId())
                 .build();
     }
 }
