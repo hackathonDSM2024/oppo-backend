@@ -21,7 +21,7 @@ public class PurchaseController {
 
     @GetMapping
     PurchaseResponse getPurchase(){
-        List<Purchase> purchaseList = (List<Purchase>) purchaseRepository.findAll();
+        List<Purchase> purchaseList = purchaseRepository.findByOrderByIdDesc();
         return PurchaseResponse.of(purchaseList);
     }
 
